@@ -59,6 +59,8 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+
+    backface-visibility: hidden; /* corrigindo o bug da animação subindo, ela não apareceu para mim, então não seria necessário usar, mas é bom deixar de exemplo caso precise */
     
 }
 
@@ -67,6 +69,18 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+    animation-name: moveInLeft;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    
+    
+    /*
+    animation-delay: 3s; -> faz um delay na animação... ela só ocorre depois do tempo passado
+    animation-iteration-count: 3; -> faz a animação o numero especificado de vezes 
+
+    */
 }
 
 .heading-primary-sub {
@@ -74,4 +88,46 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+    animation-name: moveInRight;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+}
+
+/*------------- Animation ------------- */
+/* podemos escolher pontos para animar o nosso css */
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    
+    60% {
+        transform: translateX(10px); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
+
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    
+    60% {
+        transform: translateX(-10px); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
+
+    }
 }
