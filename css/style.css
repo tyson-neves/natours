@@ -97,7 +97,7 @@ body {
     animation-timing-function: ease-out;
 }
 
-/*------------- Animation ------------- */
+/*------------- Animation HEADER ------------- */
 /* podemos escolher pontos para animar o nosso css */
 
 @keyframes moveInLeft {
@@ -134,13 +134,31 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
+
+    }
+}
+
+/*------------- BUTTON HEADER ------------- */
+
 .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     padding: 15px 40px;
     display: inline-block;
     border-radius: 100px;
-    transition: all .2s;
+    transition: all .2s; /* animação do botão tem que ser especificado na posição natural e o efeito em si colocado nos "hover" e no "active" (nas ações)*/
+    position: relative;
+    
 
 }
 
@@ -157,4 +175,42 @@ body {
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+.btn::after {
+    /* definindo o preenchimento da animação do botão */
+    content: "";
+    display: inline-block;
+
+    /* ele é um elemento filho do botão por isso esses 100% é baseado no tamanho do botão */
+    height: 100%; 
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* colocando para atrás de tudo (escondendo o pseudo elemento) */
+
+    /* a animação abaixo vai ser para todas as direções e vai durar 4 segundos */
+    transition: all .4s;
+
+}
+
+.btn-white::after {
+    /* definindo a cor do preenchimento */
+    background-color: #fff;
+}
+
+.btn:hover::after{
+    /* escala da animação saindo de opacidade 1 para 0 (sumindo) */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+
+
+}
+
+.btn-animated {
+    /*     nome da animação/duração/ efeito/ delay(tempo para iniciar) */            
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
 }
