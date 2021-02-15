@@ -53,7 +53,8 @@ body {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%);    
+    transform: translate(-50%, -50%);   
+    text-align: center; 
 }
 
 .heading-primary {
@@ -61,6 +62,7 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden; /* corrigindo o bug da animação subindo, ela não apareceu para mim, então não seria necessário usar, mas é bom deixar de exemplo caso precise */
+    margin-bottom: 60px;
     
 }
 
@@ -130,4 +132,29 @@ body {
         transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
 
     }
+}
+
+.btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+
+}
+
+.btn:hover {
+    transform: translateY(-3px); /* move o botão para cima ao passar o mouse */
+    box-shadow: 0 10px 20px rgba(0,0,0,.2); /* sobra no eixo X (lados) / sombra eixo y / desfoque */
+}
+
+.btn:active {
+    transform: translateY(-1px); /* move para cima ao clicar em conjunto com o hover ele da um efeito de click muito legal. */
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
 }
