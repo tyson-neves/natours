@@ -7,19 +7,35 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before  {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;  /* alterando os valores de fonte size para
+                         pixels para assim ficar mais fácil para
+                         adaptar para "rem". Rem é melhor pq ele
+                         se adapta melhor ao responsivo, ja que
+                         vc só tem que alterar 1 valor e não 
+                         todos como seria se fossemos alterar
+                         os pixels em todos os elementos. Vamos
+                         dividir por 10 os as propriedades que
+                         forem pixels e colocaremos REM no lugar */
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /*font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+
+    box-sizing: border-box;
 }
 
 /*------------- HEADER ------------- */
@@ -41,12 +57,12 @@ body {
 
 .logo-box {
     position: absolute;
-    top:  40px;
-    left: 40px;
+    top:  4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px;    
+    height: 3.5rem;    
 }
 
 .text-box {
@@ -62,15 +78,15 @@ body {
     text-transform: uppercase;
 
     backface-visibility: hidden; /* corrigindo o bug da animação subindo, ela não apareceu para mim, então não seria necessário usar, mas é bom deixar de exemplo caso precise */
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
     
 }
 
 .heading-primary-main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
     animation-name: moveInLeft;
@@ -87,9 +103,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
 
     /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
     animation-name: moveInRight;
@@ -103,11 +119,11 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
     
     60% {
-        transform: translateX(10px); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
+        transform: translateX(1rem); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
     }
 
     100% {
@@ -120,11 +136,11 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     
     60% {
-        transform: translateX(-10px); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
+        transform: translateX(-1rem); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
     }
 
     100% {
@@ -137,7 +153,7 @@ body {
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
 
 
@@ -153,23 +169,24 @@ body {
 .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s; /* animação do botão tem que ser especificado na posição natural e o efeito em si colocado nos "hover" e no "active" (nas ações)*/
     position: relative;
+    font-size: 1.6rem;
     
 
 }
 
 .btn:hover {
     transform: translateY(-3px); /* move o botão para cima ao passar o mouse */
-    box-shadow: 0 10px 20px rgba(0,0,0,.2); /* sobra no eixo X (lados) / sombra eixo y / desfoque */
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2); /* sobra no eixo X (lados) / sombra eixo y / desfoque */
 }
 
 .btn:active {
     transform: translateY(-1px); /* move para cima ao clicar em conjunto com o hover ele da um efeito de click muito legal. */
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
 .btn-white {
@@ -185,7 +202,7 @@ body {
     /* ele é um elemento filho do botão por isso esses 100% é baseado no tamanho do botão */
     height: 100%; 
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top: 0;
     left: 0;
