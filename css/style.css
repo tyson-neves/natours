@@ -27,7 +27,7 @@ html {
                          forem pixels e colocaremos REM no lugar
                          as que tiverem % não serão afetadas
                          o font size aqui é de 62.5% pq é o 
-                         valor de 10px que da 10 dividiido 
+                         valor de 10px que da 10 dividido 
                          pelo valor raiz da root 16px. 10/16 da
                          0.625... logo 62.5% */
 }
@@ -60,17 +60,17 @@ body {
 
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
     top:  4rem;
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     height: 3.5rem;    
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -87,7 +87,7 @@ body {
     
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
@@ -106,7 +106,7 @@ body {
     */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 700;
@@ -194,7 +194,7 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
 }
@@ -218,7 +218,7 @@ body {
 
 }
 
-.btn-white::after {
+.btn--white::after {
     /* definindo a cor do preenchimento */
     background-color: #fff;
 }
@@ -231,7 +231,7 @@ body {
 
 }
 
-.btn-animated {
+.btn--animated {
     /*     nome da animação/duração/ efeito/ delay(tempo para iniciar) */            
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards;
