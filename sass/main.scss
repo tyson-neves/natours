@@ -1,0 +1,235 @@
+$color-primary:#55c57a; 
+$color-primary-light:#7ed56f;
+$color-primary-dark:#28b485;
+
+$color-gray-dark: #777;
+$color-white: #fff;
+*,
+*::after,
+*::before  {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;  /* alterando os valores de fonte size para
+                         pixels para assim ficar mais fácil para
+                         adaptar para "rem". Rem é melhor pq ele
+                         se adapta melhor ao responsivo, ja que
+                         vc só tem que alterar 1 valor e não 
+                         todos como seria se fossemos alterar
+                         os pixels em todos os elementos. Vamos
+                         dividir por 10 os as propriedades que
+                         forem pixels e colocaremos REM no lugar
+                         as que tiverem % não serão afetadas
+                         o font size aqui é de 62.5% pq é o 
+                         valor de 10px que da 10 dividido 
+                         pelo valor raiz da root 16px. 10/16 da
+                         0.625... logo 62.5% */
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /*font-size: 16px; */
+    line-height: 1.7;
+    color: #777;
+    padding: 3rem;
+
+    box-sizing: border-box;
+}
+
+/*------------- HEADER ------------- */
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba($color-primary-light,0.8), 
+        rgba($color-primary-dark, 0.8)), 
+        url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+}
+
+.header__logo-box {
+    position: absolute;
+    top:  4rem;
+    left: 4rem;
+}
+
+.header__logo {
+    height: 3.5rem;    
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+    text-align: center; 
+}
+
+.heading-primary {
+    color:$color-white;
+    text-transform: uppercase;
+
+    backface-visibility: hidden; /* corrigindo o bug da animação subindo, ela não apareceu para mim, então não seria necessário usar, mas é bom deixar de exemplo caso precise */
+    margin-bottom: 6rem;
+    
+}
+
+.heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+
+    /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+    animation-name: moveInLeft;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    
+    
+    /*
+    animation-delay: 3s; -> faz um delay na animação... ela só ocorre depois do tempo passado
+    animation-iteration-count: 3; -> faz a animação o numero especificado de vezes 
+
+    */
+}
+
+.heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+
+    /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+    animation-name: moveInRight;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+}
+
+/*------------- Animation HEADER ------------- */
+/* podemos escolher pontos para animar o nosso css */
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    
+    60% {
+        transform: translateX(1rem); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
+
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    
+    60% {
+        transform: translateX(-1rem); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
+
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
+
+    }
+}
+
+/*------------- BUTTON HEADER ------------- */
+
+.btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s; /* animação do botão tem que ser especificado na posição natural e o efeito em si colocado nos "hover" e no "active" (nas ações)*/
+    position: relative;
+    font-size: 1.6rem;
+    
+
+}
+
+.btn:hover {
+    transform: translateY(-3px); /* move o botão para cima ao passar o mouse */
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2); /* sobra no eixo X (lados) / sombra eixo y / desfoque */
+}
+
+.btn:active {
+    transform: translateY(-1px); /* move para cima ao clicar em conjunto com o hover ele da um efeito de click muito legal. */
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
+
+.btn--white {
+    background-color: $color-white;
+    color:$color-gray-dark;
+}
+
+.btn::after {
+    /* definindo o preenchimento da animação do botão */
+    content: "";
+    display: inline-block;
+
+    /* ele é um elemento filho do botão por isso esses 100% é baseado no tamanho do botão */
+    height: 100%; 
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* colocando para atrás de tudo (escondendo o pseudo elemento) */
+
+    /* a animação abaixo vai ser para todas as direções e vai durar 4 segundos */
+    transition: all .4s;
+
+}
+
+.btn--white::after {
+    /* definindo a cor do preenchimento */
+    background-color: $color-white;
+}
+
+.btn:hover::after{
+    /* escala da animação saindo de opacidade 1 para 0 (sumindo) */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+
+
+}
+
+.btn--animated {
+    /*     nome da animação/duração/ efeito/ delay(tempo para iniciar) */            
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+}
