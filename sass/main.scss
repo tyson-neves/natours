@@ -4,6 +4,7 @@ $color-primary-dark:#28b485;
 
 $color-gray-dark: #777;
 $color-white: #fff;
+$color-black: #000;
 *,
 *::after,
 *::before  {
@@ -34,7 +35,7 @@ body {
     font-weight: 400;
     /*font-size: 16px; */
     line-height: 1.7;
-    color: #777;
+    color: $color-gray-dark;
     padding: 3rem;
 
     box-sizing: border-box;
@@ -183,12 +184,12 @@ body {
 
 .btn:hover {
     transform: translateY(-3px); /* move o botão para cima ao passar o mouse */
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.2); /* sobra no eixo X (lados) / sombra eixo y / desfoque */
+    box-shadow: 0 1rem 2rem rgba($color-black,.2); /* sobra no eixo X (lados) / sombra eixo y / desfoque */
 }
 
 .btn:active {
     transform: translateY(-1px); /* move para cima ao clicar em conjunto com o hover ele da um efeito de click muito legal. */
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2);
 }
 
 .btn--white {
