@@ -56,25 +56,26 @@ body {
 
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
+    &__logo-box {
+        position: absolute;
+        top:  4rem;
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;    
+    }
+    
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);   
+        text-align: center; 
+    }
 }
 
-.header__logo-box {
-    position: absolute;
-    top:  4rem;
-    left: 4rem;
-}
 
-.header__logo {
-    height: 3.5rem;    
-}
-
-.header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);   
-    text-align: center; 
-}
 
 .heading-primary {
     color:$color-white;
@@ -83,38 +84,39 @@ body {
     backface-visibility: hidden; /* corrigindo o bug da animação subindo, ela não apareceu para mim, então não seria necessário usar, mas é bom deixar de exemplo caso precise */
     margin-bottom: 6rem;
     
-}
-
-.heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-
-    /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
-    animation-name: moveInLeft;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
     
+        /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+        animation-name: moveInLeft;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+        
+        
+        /*
+        animation-delay: 3s; -> faz um delay na animação... ela só ocorre depois do tempo passado
+        animation-iteration-count: 3; -> faz a animação o numero especificado de vezes 
     
-    /*
-    animation-delay: 3s; -> faz um delay na animação... ela só ocorre depois do tempo passado
-    animation-iteration-count: 3; -> faz a animação o numero especificado de vezes 
-
-    */
+        */
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+    
+        /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+        animation-name: moveInRight;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+    }
 }
 
-.heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
 
-    /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
-    animation-name: moveInRight;
-    animation-duration: 1.5s;
-    animation-timing-function: ease-out;
-}
 
 /*------------- Animation HEADER ------------- */
 /* podemos escolher pontos para animar o nosso css */
@@ -169,68 +171,68 @@ body {
 
 /*------------- BUTTON HEADER ------------- */
 
-.btn:link, .btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s; /* animação do botão tem que ser especificado na posição natural e o efeito em si colocado nos "hover" e no "active" (nas ações)*/
-    position: relative;
-    font-size: 1.6rem;
+.btn {
+    &:link, &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s; /* animação do botão tem que ser especificado na posição natural e o efeito em si colocado nos "hover" e no "active" (nas ações)*/
+        position: relative;
+        font-size: 1.6rem;
+        
     
+    }
+    
+    &:hover {
+        transform: translateY(-3px); /* move o botão para cima ao passar o mouse */
+        box-shadow: 0 1rem 2rem rgba($color-black,.2); /* sobra no eixo X (lados) / sombra eixo y / desfoque */
 
-}
+        &::after{
+            /* escala da animação saindo de opacidade 1 para 0 (sumindo) */
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    
+    &:active {
+        transform: translateY(-1px); /* move para cima ao clicar em conjunto com o hover ele da um efeito de click muito legal. */
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+    
+    &--white {
+        background-color: $color-white;
+        color:$color-gray-dark;
 
-.btn:hover {
-    transform: translateY(-3px); /* move o botão para cima ao passar o mouse */
-    box-shadow: 0 1rem 2rem rgba($color-black,.2); /* sobra no eixo X (lados) / sombra eixo y / desfoque */
-}
-
-.btn:active {
-    transform: translateY(-1px); /* move para cima ao clicar em conjunto com o hover ele da um efeito de click muito legal. */
-    box-shadow: 0 .5rem 1rem rgba($color-black,.2);
-}
-
-.btn--white {
-    background-color: $color-white;
-    color:$color-gray-dark;
-}
-
-.btn::after {
-    /* definindo o preenchimento da animação do botão */
-    content: "";
-    display: inline-block;
-
-    /* ele é um elemento filho do botão por isso esses 100% é baseado no tamanho do botão */
-    height: 100%; 
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; /* colocando para atrás de tudo (escondendo o pseudo elemento) */
-
-    /* a animação abaixo vai ser para todas as direções e vai durar 4 segundos */
-    transition: all .4s;
-
-}
-
-.btn--white::after {
-    /* definindo a cor do preenchimento */
-    background-color: $color-white;
-}
-
-.btn:hover::after{
-    /* escala da animação saindo de opacidade 1 para 0 (sumindo) */
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-
-
-}
-
-.btn--animated {
-    /*     nome da animação/duração/ efeito/ delay(tempo para iniciar) */            
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards;
+        &::after {
+            /* definindo a cor do preenchimento */
+            background-color: $color-white;
+        }
+    }
+    
+    &::after {
+        /* definindo o preenchimento da animação do botão */
+        content: "";
+        display: inline-block;
+    
+        /* ele é um elemento filho do botão por isso esses 100% é baseado no tamanho do botão */
+        height: 100%; 
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* colocando para atrás de tudo (escondendo o pseudo elemento) */
+    
+        /* a animação abaixo vai ser para todas as direções e vai durar 4 segundos */
+        transition: all .4s;
+    
+    }
+    
+    &--animated {
+        /*     nome da animação/duração/ efeito/ delay(tempo para iniciar) */            
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards;
+    }
 }

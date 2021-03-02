@@ -40,21 +40,18 @@ body {
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -62,31 +59,29 @@ body {
   backface-visibility: hidden;
   /* corrigindo o bug da animação subindo, ela não apareceu para mim, então não seria necessário usar, mas é bom deixar de exemplo caso precise */
   margin-bottom: 6rem; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
-  animation-name: moveInLeft;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out;
-  /*
-    animation-delay: 3s; -> faz um delay na animação... ela só ocorre depois do tempo passado
-    animation-iteration-count: 3; -> faz a animação o numero especificado de vezes 
-
-    */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
-  animation-name: moveInRight;
-  animation-duration: 1.5s;
-  animation-timing-function: ease-out; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+    animation-name: moveInLeft;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    /*
+        animation-delay: 3s; -> faz um delay na animação... ela só ocorre depois do tempo passado
+        animation-iteration-count: 3; -> faz a animação o numero especificado de vezes 
+    
+        */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+    animation-name: moveInRight;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out; }
 
 /*------------- Animation HEADER ------------- */
 /* podemos escolher pontos para animar o nosso css */
@@ -140,6 +135,10 @@ body {
   /* move o botão para cima ao passar o mouse */
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   /* sobra no eixo X (lados) / sombra eixo y / desfoque */ }
+  .btn:hover::after {
+    /* escala da animação saindo de opacidade 1 para 0 (sumindo) */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
@@ -149,6 +148,9 @@ body {
 .btn--white {
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    /* definindo a cor do preenchimento */
+    background-color: #fff; }
 
 .btn::after {
   /* definindo o preenchimento da animação do botão */
@@ -165,15 +167,6 @@ body {
   /* colocando para atrás de tudo (escondendo o pseudo elemento) */
   /* a animação abaixo vai ser para todas as direções e vai durar 4 segundos */
   transition: all .4s; }
-
-.btn--white::after {
-  /* definindo a cor do preenchimento */
-  background-color: #fff; }
-
-.btn:hover::after {
-  /* escala da animação saindo de opacidade 1 para 0 (sumindo) */
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
 
 .btn--animated {
   /*     nome da animação/duração/ efeito/ delay(tempo para iniciar) */
