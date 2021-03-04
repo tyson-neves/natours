@@ -1,0 +1,65 @@
+/*------------- BUTTON HEADER ------------- */
+
+.btn {
+    &:link, &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s; /* animação do botão tem que ser especificado na posição natural e o efeito em si colocado nos "hover" e no "active" (nas ações)*/
+        position: relative;
+        font-size: 1.6rem;
+    }
+    
+    &:hover {
+        transform: translateY(-3px); /* move o botão para cima ao passar o mouse */
+        box-shadow: 0 1rem 2rem rgba($color-black,.2); /* sobra no eixo X (lados) / sombra eixo y / desfoque */
+
+        &::after{
+            /* escala da animação saindo de opacidade 1 para 0 (sumindo) */
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    
+    &:active {
+        transform: translateY(-1px); /* move para cima ao clicar em conjunto com o hover ele da um efeito de click muito legal. */
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+    
+    &--white {
+        background-color: $color-white;
+        color:$color-gray-dark;
+
+        &::after {
+            /* definindo a cor do preenchimento */
+            background-color: $color-white;
+        }
+    }
+    
+    &::after {
+        /* definindo o preenchimento da animação do botão */
+        content: "";
+        display: inline-block;
+    
+        /* ele é um elemento filho do botão por isso esses 100% é baseado no tamanho do botão */
+        height: 100%; 
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* colocando para atrás de tudo (escondendo o pseudo elemento) */
+    
+        /* a animação abaixo vai ser para todas as direções e vai durar 4 segundos */
+        transition: all .4s;
+    
+    }
+    
+    &--animated {
+        /*     nome da animação/duração/ efeito/ delay(tempo para iniciar) */            
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards;
+    }
+}

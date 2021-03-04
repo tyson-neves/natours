@@ -1,0 +1,50 @@
+/*------------- Animation HEADER ------------- */
+/* podemos escolher pontos para animar o nosso css */
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    
+    60% {
+        transform: translateX(1rem); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
+
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    
+    60% {
+        transform: translateX(-1rem); /* fazendo ele passar do ponto zero e voltando depois (efeito indo e voltando) */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
+
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+
+
+    100% {
+        opacity: 1;
+        transform: translate(0); /*ele vai chegar na posição final (que é onde ele foi posicionado */
+
+    }
+}

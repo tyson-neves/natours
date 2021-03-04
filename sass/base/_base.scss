@@ -1,0 +1,28 @@
+*,
+*::after,
+*::before  {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;  /* alterando os valores de fonte size para
+                         pixels para assim ficar mais fácil para
+                         adaptar para "rem". Rem é melhor pq ele
+                         se adapta melhor ao responsivo, ja que
+                         vc só tem que alterar 1 valor e não 
+                         todos como seria se fossemos alterar
+                         os pixels em todos os elementos. Vamos
+                         dividir por 10 os as propriedades que
+                         forem pixels e colocaremos REM no lugar
+                         as que tiverem % não serão afetadas
+                         o font size aqui é de 62.5% pq é o 
+                         valor de 10px que da 10 dividido 
+                         pelo valor raiz da root 16px. 10/16 da
+                         0.625... logo 62.5% */
+}
+
+body {
+    box-sizing: border-box;
+}

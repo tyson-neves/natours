@@ -1,0 +1,47 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /*font-size: 16px; */
+    line-height: 1.7;
+    color: $color-gray-dark;
+    padding: 3rem;
+}
+
+.heading-primary {
+    color:$color-white;
+    text-transform: uppercase;
+
+    backface-visibility: hidden; /* corrigindo o bug da animação subindo, ela não apareceu para mim, então não seria necessário usar, mas é bom deixar de exemplo caso precise */
+    margin-bottom: 6rem;
+    
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+    
+        /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+        animation-name: moveInLeft;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+        
+        
+        /*
+        animation-delay: 3s; -> faz um delay na animação... ela só ocorre depois do tempo passado
+        animation-iteration-count: 3; -> faz a animação o numero especificado de vezes 
+    
+        */
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+    
+        /* colocando a animação(seção de baixo) na main para de fato ela ocorrer */
+        animation-name: moveInRight;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-out;
+    }
+}
