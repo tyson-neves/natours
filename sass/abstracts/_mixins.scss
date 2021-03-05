@@ -1,0 +1,9 @@
+
+// clear do float vai vir no content onde usamos o float só que em um pseudo elemento after (ou seja depois que ele mostrou tudo) sem conteúdo para limpar o float para ele não influenciar o layout acima nem abaixo. 
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
