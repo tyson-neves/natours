@@ -9,7 +9,7 @@
         border-radius: 10rem;
         transition: all .2s; /* animação do botão tem que ser especificado na posição natural e o efeito em si colocado nos "hover" e no "active" (nas ações)*/
         position: relative;
-        font-size: 1.6rem;
+        font-size: $default-font-size;
     }
     
     &:hover {
@@ -61,5 +61,23 @@
         /*     nome da animação/duração/ efeito/ delay(tempo para iniciar) */            
         animation: moveInBottom .5s ease-out .75s;
         animation-fill-mode: backwards;
+    }
+}
+
+.btn-text {
+    &:link, &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: .1rem solid $color-primary;
+        padding: .3rem;
+    }
+    &.hover {
+        
+    }
+
+    &:active {
+
     }
 }
