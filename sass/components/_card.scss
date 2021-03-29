@@ -58,6 +58,9 @@
         --webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
         //cortando a imagem  bordas do quadrado 1 2 3 4
         clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
        
 
 
