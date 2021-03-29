@@ -37,6 +37,16 @@
             background-color: $color-white;
         }
     }
+
+    &--green {
+        background-color: $color-primary;
+        color:$color-gray-light-1;
+
+        &::after {
+            /* definindo a cor do preenchimento */
+            background-color: $color-primary;
+        }
+    }
     
     &::after {
         /* definindo o preenchimento da animação do botão */
